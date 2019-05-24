@@ -28,6 +28,11 @@ fi
 
 ## Get the bluesky ID based on the human name of the computer
 bsID=$(grep ^"$computerChoice" "$computersListPath" | awk -F ',' '{print $2}')
+# sanity check that we have an integer value here
+if [ ! "$bsID" -ge 1 ];then
+	echo "Found a garbage value for bluesky ID."
+	exit 4
+fi
 
 ## Get a username from the list if we have one
 username=$(grep ^"$computerChoice" "$computersListPath" | awk -F ',' '{print $3}')
