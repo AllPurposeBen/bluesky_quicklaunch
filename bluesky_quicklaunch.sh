@@ -8,7 +8,7 @@ if [[ ! -e "$computersListPath" ]]; then
 fi
 
 ## Format the computer list for stupid AppleScript
-computerNameListRaw=$(grep -v ^'username' "$computersListPath" | awk -F ',' '{print $1}')
+computerNameListRaw=$(cat "$computersListPath" | awk -F ',' '{print $1}')
 computerListOSA=''
 IFS=$'\n'
 for thisItem in $(echo "$computerNameListRaw"); do
