@@ -21,3 +21,5 @@ Entry formatting for the list is csv: `Friendly Machine Name,id#,username`
 `username` is a username you'd like defaulted into the process. If not provided, bluesky admin will just ask you.
 
 Included in the repo is an example computers list.
+
+Mock me at the `#bluesky` channel on MacAdmins Slack.
