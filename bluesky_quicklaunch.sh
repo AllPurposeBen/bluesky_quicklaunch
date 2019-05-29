@@ -1,8 +1,13 @@
 #!/bin/bash
 
 ## Vars, lets get our stuff
-computersListPath="$(dirname $0)/blueskyComputerslist.txt"  ## change this if you want
-if [[ ! -e "$computersListPath" ]]; then
+if [[ -f "$HOME/.blueskyComputerslist.txt" ]]; then
+	computersListPath="$HOME/.blueskyComputerslist.txt"
+elif [[ -f "./blueskyComputerslist.txt" ]]; then
+	computersListPath="./blueskyComputerslist.txt"
+elif [[ -f "$(dirname $0)/blueskyComputerslist.txt" ]]; then
+	computersListPath="$(dirname $0)/blueskyComputerslist.txt"  ## change this if you want
+else
 	echo "The list of computers needs to be in the same folder as this script for things to work."
 	exit 3
 fi
